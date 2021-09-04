@@ -1,0 +1,82 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load widget_tweaks %} 
+
+{% block title %}
+Sign Up
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<div class="container text-center" >
+  <div class="card text-center" style="box-shadow: 1px 3px 20px turquoise; border-radius: 20px;">
+    <div class="card-body" >
+      <p style="font-family: Prata; font-size: 20px;">
+        Please Sign Up to continue.
+      </p>
+      <form method="post">
+        {% csrf_token %}
+        {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+      {% for error in form.non_field_errors %}
+        {{ error }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control" %}
+      {% endif %}
+
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+  {% endfor %}
+        <!-- <div class="input-group mb-3 container">
+          <div class="input-group-prepend">  
+            <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+          </div>
+          {% render_field form.username class="form-control" placeholder="Username" %}
+
+        </div>
+
+        <div class="input-group mb-3 container">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+          </div>
+          {% render_field form.password1 class="form-control" placeholder="Password" %}
+          
+        </div>
+        <div class="input-group mb-3 container">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password</span>
+            </div>
+            {% render_field form.password2 class="form-control" placeholder="Password" %}
+          </div> -->
+        <button type="submit" class="btn btn-dark" id="savebutton">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock content %}

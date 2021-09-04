@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+Success!
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<div class="container text-center" >
+  <div class="card text-center" style="box-shadow: 1px 3px 20px turquoise; border-radius: 20px;">
+    <div class="card-header" style = "border-radius: 20px 20px 15px 15px;">
+      <p style="font-family: Prata; font-size: 20px;">
+        Successfully Sent. 😉
+      </p>
+    </div>
+    <div class="card-body" >  
+      {% if user %}    
+      
+      <div class="text-center" style="font-family: Prata;">
+        You can also share links with your friends. 😜
+        <br>
+        <a href = "{% url 'home' %}" class="btn btn-dark">Generate New</a>
+        <a href = "{% url 'links' %}" class="btn btn-light">Share existing</a>
+      </div>
+      {% else %}
+
+      <div class="text-center" style="font-family: Prata;">
+        Want to do the same? Go create an account. 😜
+        <a href = "{% url 'signup' %}">Sign Up</a>
+      </div>
+      <div class="text-center" style="font-family: Prata;">
+        Already have an account? 😋
+        <a href = "{% url 'login' %}">Sign In</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+{% endblock content %}

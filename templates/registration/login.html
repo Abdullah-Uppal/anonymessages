@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load widget_tweaks %} 
+
+{% block title %}
+Sign In
+{% endblock title %}
+
+{% block content %}
+<br><br>
+<div class="container text-center" >
+  <div class="card text-center" style="box-shadow: 1px 3px 20px turquoise; border-radius: 20px;">
+    <div class="card-header" style = "border-radius: 20px 20px 15px 15px;">
+      <p style="font-family: Prata; font-size: 20px;">
+        Please Sign In to continue.
+      </p>
+    </div>
+    <div class="card-body" >
+      
+      <form method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3 container">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+          </div>
+          {% render_field form.username class="form-control" placeholder="Username" %}
+
+        </div>
+
+        <div class="input-group mb-3 container">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+          </div>
+          {% render_field form.password class="form-control" placeholder="Password" %}
+          
+        </div>
+        <button type="submit" class="btn btn-dark" id="savebutton">Sign In</button>
+      </form>
+      <div class="text-muted">
+        Doesn't have an account?
+        <a href = "{% url 'signup' %}">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock content %}

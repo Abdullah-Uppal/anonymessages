@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}
+  Send Message!
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<br>
+	<div class="text-dark">
+		<h4 style="font-family: Prata;">
+			Don't worry we won't reveal your name!
+		</h4>
+	</div>
+	<br>
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="{{ form.message.id_for_label }}" style="font-family: Prata;">Your Message:</label>
+    <p>{% render_field form.message class='form-control' style="border-radius: 20px; font-family: Prata; font-size: 18px" %}</p>
+    <button type="submit" class="btn btn-dark">Send</button>
+  </form>
+</div>
+{% endblock content %}
