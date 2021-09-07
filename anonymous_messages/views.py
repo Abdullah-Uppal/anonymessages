@@ -44,11 +44,9 @@ def home(request):
 class URLListView(LoginRequiredMixin, ListView):
   model = URL
   template_name = 'links.html'
-  ordering = ['-time_created'] 
   context_object_name = 'urls'
-
   def get_queryset(self):
-      return URL.objects.filter(user=self.request.user)
+      return URL.objects.filter(user=self.request.user).order_by('-time_created')
 @login_required
 def delete_message(request, id):
     try:
@@ -72,7 +70,7 @@ class AnonymousMessageListView(LoginRequiredMixin, ListView):
     context_object_name = 'messages'
 
     def get_queryset(self):
-        return URL.objects.get(id=self.kwargs.get('id')).anonymousmessage_set.all().order_by('-time_created')
+        return URL.objects.get(id=self.kwargs.get('id')).anonymousmessage_set.all().order_by('?')
 
 @login_required
 def homeview(request):
