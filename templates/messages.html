@@ -29,7 +29,7 @@ Messages &middot; {{ user.usename }}
 <div class="container" id="{{ message.id }}">
   <div class="card mb-4 mt-4 link-card" style="border-radius: 20px;">
     <div class="card-header bg-dark text-light" style="border-radius: 20px 20px 5px 5px; font-family:'DM Serif Display'">
-      {{ message.time_created }}
+      {{ message.time_created|date:"N d, Y" }}
       <button
 				onclick="deleteMessage('{% url 'delete_message' message.id %}', '{{ message.id }}')"
 				style="border: none; border-radius: 10px; float: right"
