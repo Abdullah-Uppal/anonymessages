@@ -1,11 +1,8 @@
 # Anonymessages
 Let you receive anonymous messages from others.
-
-## Login
-![image](https://user-images.githubusercontent.com/59197202/194880674-54dfaacf-905c-4f9f-a738-2ffdd38e2b97.png)
-
-## Sign Up
-![image](https://user-images.githubusercontent.com/59197202/194880737-fc269093-e6aa-432a-8512-7c46221df456.png)
+| ## Login | ## Sign Up  |
+| ----------- | ----------- |
+| ![image](https://user-images.githubusercontent.com/59197202/194880674-54dfaacf-905c-4f9f-a738-2ffdd38e2b97.png) | ![image](https://user-images.githubusercontent.com/59197202/194880737-fc269093-e6aa-432a-8512-7c46221df456.png) |
 
 ## Home - Generate Link
 1. Name your link
